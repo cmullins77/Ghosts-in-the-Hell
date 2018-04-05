@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class MicInput : MonoBehaviour {
      
-        public static float MicLoudness;
+        public float MicLoudness;
  
         private string _device;
      
@@ -48,7 +48,7 @@ public class MicInput : MonoBehaviour {
         {
             // levelMax equals to the highest normalized value power 2, a small number because < 1
             // pass the value to a static var so we can access it from anywhere
-            MicLoudness = LevelMax ();
+            MicLoudness = LevelMax();
         }
      
         bool _isInitialized;
