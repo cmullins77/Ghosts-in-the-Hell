@@ -439,7 +439,13 @@ MonoBehaviour:
   Time: 0
   hitting: 0
   done: 0
+  score: 0
+  gc: {fileID: 0}
   timeQuiet: 0
+  gameLength: 0
+  barLength: 371
+  timeSpeed: 0
+  timeBar: {fileID: 2094908740}
 --- !u!1 &1175808840
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +807,21 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114920571642188696, guid: 73b3b248d7a008f4c965f7ea15f2d724,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920571642188696, guid: 73b3b248d7a008f4c965f7ea15f2d724,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73b3b248d7a008f4c965f7ea15f2d724, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &2094908740 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224375921800974392, guid: 73b3b248d7a008f4c965f7ea15f2d724,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094908739}

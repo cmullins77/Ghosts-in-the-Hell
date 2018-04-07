@@ -17,14 +17,26 @@ public class StrengthGame : MonoBehaviour {
     public GameController gc;
 
     public int timeQuiet;
+
+    public int gameLength;
+    public int barLength;
+    public float timeSpeed;
+    public RectTransform timeBar;
 	// Use this for initialization
 	void Start () {
         startGame();
+        gameLength = 900;
+        timeSpeed = barLength / (gameLength * 1.0f);
         gc = (GameController)FindObjectOfType(typeof(GameController));
     }
 	
 	// Update is called once per frame
 	void Update () {
+        timeBar.sizeDelta = new Vector2(timeBar.sizeDelta.x - timeSpeed, timeBar.sizeDelta.y);
+        if (timeBar.sizeDelta.x <= 0) {
+            gc.currentScore += score;
+            gc.goToNext();
+        }
         if (!done) {
             float value = input.loudestSound;
             float current = input.MicLoudness;
