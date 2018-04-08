@@ -147,7 +147,7 @@ public class GameGUINavigation : MonoBehaviour {
     {
         GameManager.Level++;
         // print("Level: "+GameManager.Level);
-        Application.LoadLevel("game");
+        Application.LoadLevel("pacman");
     }
 
     public void ToggleErrorMsg(string errorMsg)
