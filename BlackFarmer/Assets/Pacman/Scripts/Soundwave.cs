@@ -36,6 +36,7 @@ public class Soundwave : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		_gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
 		
 		// Increase the score everytime you scare pacman
 		if(other.name == "pacman")

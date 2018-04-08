@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 48d408aeb74c04fe98bc20c7c79c7e4c
+timeCreated: 1523137031
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ring_blue: {fileID: 1599172266991498, guid: 833cbadec03724a15acae6dc1a65263c,
+      type: 2}
+  - ring_yellow: {fileID: 1423538332163224, guid: 0966aec972c334bd29301ac98266c1a3,
+      type: 2}
+  - ring_red: {fileID: 1276977738658140, guid: 99b80f4a69d0f49618ce1938feac86d4, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

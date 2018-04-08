@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8190703242e0a4ac4bf833c1a1ac92fd
+timeCreated: 1523137693
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ring_spawner: {fileID: 1165734995547952, guid: 3a53b778fe50c4983a7a8b97cade54e4,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

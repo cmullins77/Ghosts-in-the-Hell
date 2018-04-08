@@ -17,12 +17,6 @@ public class GameGUINavigation : MonoBehaviour {
 	public float initialDelay;
 
 	// canvas
-	public Canvas PauseCanvas;
-	public Canvas QuitCanvas;
-	public Canvas ReadyCanvas;
-	public Canvas ScoreCanvas;
-    public Canvas ErrorCanvas;
-    public Canvas GameOverCanvas;
 	
 	//------------------------------------------------------------------
 	// Function Definitions
@@ -36,13 +30,6 @@ public class GameGUINavigation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Input.GetKeyDown(KeyCode.Escape))
-		{
-			if(quit == true)
-				ToggleQuit();
-			else
-				TogglePause();
-		}
 	}
 
 	// public handle to show ready screen coroutine call
@@ -60,68 +47,11 @@ public class GameGUINavigation : MonoBehaviour {
 	{
 		//initialWaitOver = false;
 		GameManager.gameState = GameManager.GameState.Init;
-		ReadyCanvas.enabled = true;
 		yield return new WaitForSeconds(seconds);
-		ReadyCanvas.enabled = false;
 		GameManager.gameState = GameManager.GameState.Game;
 		//initialWaitOver = true;
 	}
 
-    IEnumerator ShowGameOverScreen()
-    {
-        Debug.Log("Showing GAME OVER Screen");
-        GameOverCanvas.enabled = true;
-        yield return new WaitForSeconds(2);
-    }
-
-	public void getScoresMenu()
-	{
-		Time.timeScale = 0f;		// stop the animations
-		GameManager.gameState = GameManager.GameState.Scores;
-		ScoreCanvas.enabled = true;
-	}
-
-	//------------------------------------------------------------------
-	// Button functions
-
-	public void TogglePause()
-	{
-		// if paused before key stroke, unpause the game
-		if(_paused)
-		{
-			Time.timeScale = 1;
-			PauseCanvas.enabled = false;
-			_paused = false;
-		}
-		
-		// if not paused before key stroke, pause the game
-		else
-		{
-			PauseCanvas.enabled = true;
-			Time.timeScale = 0.0f;
-			_paused = true;
-		}
-
-
-        Debug.Log("PauseCanvas enabled: " + PauseCanvas.enabled);
-	}
-	
-	public void ToggleQuit()
-	{
-		if(quit)
-        {
-            PauseCanvas.enabled = true;
-            QuitCanvas.enabled = false;
-			quit = false;
-		}
-		
-		else
-        {
-            QuitCanvas.enabled = true;
-			PauseCanvas.enabled = false;
-			quit = true;
-		}
-	}
 
     public string Md5Sum(string strToEncrypt)
     {
@@ -150,20 +80,4 @@ public class GameGUINavigation : MonoBehaviour {
         Application.LoadLevel("pacman");
     }
 
-    public void ToggleErrorMsg(string errorMsg)
-    {
-        if (ErrorCanvas.enabled)
-        {
-            ScoreCanvas.enabled = true;
-            ErrorCanvas.enabled = false;
-
-        }
-        else
-        {
-            ScoreCanvas.enabled = false;
-            ErrorCanvas.enabled = true;
-            ErrorCanvas.GetComponentsInChildren<Text>()[1].text = errorMsg;
-
-        }
-    }
 }

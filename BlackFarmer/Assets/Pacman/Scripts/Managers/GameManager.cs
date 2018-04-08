@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
     {
         if (Level == 0) lives = 3;
 
-        Debug.Log("Level " + Level + " Loaded!");
+        // Debug.Log("Level " + Level + " Loaded!");
         AssignGhosts();
         ResetVariables();
 
@@ -134,12 +134,12 @@ public class GameManager : MonoBehaviour {
         pacman = GameObject.Find("pacman");
         axeman = GameObject.Find("axeman");
 
-        if (clyde == null || pinky == null || inky == null || blinky == null) Debug.Log("One of ghosts are NULL");
-        if (pacman == null) Debug.Log("Pacman is NULL");
+        // if (clyde == null || pinky == null || inky == null || blinky == null) Debug.Log("One of ghosts are NULL");
+        // if (pacman == null) Debug.Log("Pacman is NULL");
 
         gui = GameObject.FindObjectOfType<GameGUINavigation>();
 
-        if(gui == null) Debug.Log("GUI Handle Null!");
+        // if(gui == null) Debug.Log("GUI Handle Null!");
 
     }
 
