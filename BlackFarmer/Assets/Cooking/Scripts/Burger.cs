@@ -24,14 +24,30 @@ public class Burger : MonoBehaviour {
     public void makeActive() {
         img.SetActive(true);
     }
+    public void makeInactive() {
+        img.SetActive(false);
+    }
 
     public int getScore() {
-        if (cookedLevel >= cookedLevelGoodLow && cookedLevel <= cookedLevelGoodHigh) {
+        if (getDoneness() == 2) {
             return 1000;
-        } else if (cookedLevel >= cookedLevelOkayLow && cookedLevel <= cookedLevelOkayHigh) {
+        } else if (getDoneness() == 1 || getDoneness() == 3) {
             return 500;
         } else {
             return 0;
+        }
+    }
+    public int getDoneness() {
+        if (cookedLevel < cookedLevelOkayLow) {
+            return 0;
+        } else if (cookedLevel < cookedLevelGoodLow) {
+            return 1;
+        } else if (cookedLevel <= cookedLevelGoodHigh) {
+            return 2;
+        } else if (cookedLevel <= cookedLevelOkayHigh) {
+            return 3;
+        } else {
+            return 4;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CookingGame : MonoBehaviour{
 
@@ -38,6 +39,13 @@ public class CookingGame : MonoBehaviour{
     public int score;
     public GameController gc;
 
+
+    public Sprite[] burgerSprites;
+    public Image[] burgerImages;
+    public GameObject[] burgerImageObjs;
+
+    public string[] patties;
+
     // Use this for initialization
     void Start () {
         play();
@@ -56,6 +64,7 @@ public class CookingGame : MonoBehaviour{
     }
 
     public void nextBurger() {
+        burger.makeInactive();
         burger = burgers[burgerNum];
         burger.makeActive();
         time = 180;
@@ -83,6 +92,7 @@ public class CookingGame : MonoBehaviour{
 
     // Update is called once per frame
     void Update() {
+        burger.GetComponent<Animator>().Play(patties[burger.getDoneness()]);
         if (playing) {
             if (burger.cookedLevel < 100) {
                 float val = input.MicLoudness;
@@ -98,12 +108,15 @@ public class CookingGame : MonoBehaviour{
             timeBar.sizeDelta = new Vector2(timeBar.sizeDelta.x - timeSpeed, timeBar.sizeDelta.y);
             arrow.transform.localPosition = new Vector3(burger.cookedLevel - 50, arrow.transform.localPosition.y, 1);
             if (time == 0) {
+                burgerImages[burgerNum].sprite = burgerSprites[burger.getDoneness()];
+                burgerImageObjs[burgerNum].SetActive(true);
                 burgerNum++;
                 if (burgerNum == 5) {
+                    burger.makeInactive();
                     playing = false;
                     score = burgers[0].getScore() + burgers[1].getScore() + burgers[2].getScore() + burgers[3].getScore() + burgers[4].getScore();
                     gc.currentScore += score;
-                    gc.goToNext();
+                    StartCoroutine(goToNextGame());
                     //show score
                     //load next game
                 } else {
@@ -111,5 +124,9 @@ public class CookingGame : MonoBehaviour{
                 }
             }
         }
+    }
+    IEnumerator goToNextGame() {
+        yield return new WaitForSeconds(2);
+        gc.goToNext();
     }
 }
