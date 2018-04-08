@@ -5,7 +5,9 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ring_spawner: {fileID: 1165734995547952, guid: 3a53b778fe50c4983a7a8b97cade54e4,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
