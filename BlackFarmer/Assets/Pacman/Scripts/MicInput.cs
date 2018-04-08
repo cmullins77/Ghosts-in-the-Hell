@@ -5,7 +5,9 @@ using UnityEngine.Audio;
 
 public class MicInput : MonoBehaviour {
      
-        public float MicLoudness;
+    public float MicLoudness;
+    public float loudestSound;
+    
  
         private string _device;
      
@@ -44,17 +46,20 @@ public class MicInput : MonoBehaviour {
      
      
      
-        void Update()
-        {
+    void Update() {
             // levelMax equals to the highest normalized value power 2, a small number because < 1
             // pass the value to a static var so we can access it from anywhere
-            MicLoudness = LevelMax();
+        MicLoudness = LevelMax();
+        if (MicLoudness > loudestSound) {
+            loudestSound = MicLoudness;
         }
+    }
      
         bool _isInitialized;
         // start mic when scene starts
         void OnEnable()
         {
+        loudestSound = 0f;
             InitMic();
             _isInitialized=true;
         }
