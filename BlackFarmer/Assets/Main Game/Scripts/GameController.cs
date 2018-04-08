@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour {
     public GameObject dayText;
     public GameObject mainTitle;
     public GameObject mainInstructions;
-
+    int prevNum = -1;
     // Use this for initialization
     void Start() {
         restartGame();
@@ -36,8 +36,12 @@ public class GameController : MonoBehaviour {
     public void restartGame() {
         levels = new List<string>();
         for (int i = 0; i < numLevels; i++) {
-            float randNum = Random.Range(0, games.Length);
+            int randNum = Random.Range(0, games.Length);
+            while(randNum == prevNum) {
+                randNum = Random.Range(0, games.Length);
+            }
             levels.Add(games[(int)randNum]);
+            prevNum = randNum;
         }
         currentLevel = -1;
         currentScore = 0;

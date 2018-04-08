@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Sonic/sonic.unity
     guid: 2c89ab2a755ff4d2f86d3e1a1f08bba0
+  - enabled: 1
+    path: Assets/Fighting/Fighting.unity
+    guid: 90844749928bee74d9685b3fda18547b

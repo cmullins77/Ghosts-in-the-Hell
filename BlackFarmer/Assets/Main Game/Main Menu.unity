@@ -125,6 +125,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: games.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 224597001429028826, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -253,12 +258,42 @@ Prefab:
     - target: {fileID: 224909424062286606, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.82469386
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224909424062286606, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 14
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: games.Array.data[4]
+      value: Fighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: games.Array.data[2]
+      value: Cooking
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: games.Array.data[3]
+      value: Strength Tester
+      objectReference: {fileID: 0}
+    - target: {fileID: 224909424062286606, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: games.Array.data[1]
+      value: Sonic
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: games.Array.data[0]
+      value: pacman
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499ae91c347e5214596825c5a71fa739, type: 2}
