@@ -218,22 +218,22 @@ Prefab:
     - target: {fileID: 114739371609643684, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114739371609643684, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114831937113087144, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114831937113087144, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
@@ -250,6 +250,16 @@ Prefab:
       propertyPath: mainInstructions
       value: 
       objectReference: {fileID: 1310094852}
+    - target: {fileID: 224909424062286606, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.82469386
+      objectReference: {fileID: 0}
+    - target: {fileID: 224909424062286606, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499ae91c347e5214596825c5a71fa739, type: 2}
   m_IsPrefabParent: 0
@@ -534,7 +544,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -557,7 +567,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1797911568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

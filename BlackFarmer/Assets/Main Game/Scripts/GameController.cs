@@ -11,8 +11,8 @@ public class GameController : MonoBehaviour {
     public List<string> levels;
 
     public int currentLevel;
-    public int currentScore;
-    public int highScore;
+    public float currentScore;
+    public float highScore;
 
 
     public MicInput input;

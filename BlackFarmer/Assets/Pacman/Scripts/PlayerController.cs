@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private bool _deadPlaying = false;
 
+    private GameController gc;
+
     // Use this for initialization
     void Start()
     {
@@ -34,6 +36,8 @@ public class PlayerController : MonoBehaviour
         SM = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
         GUINav = GameObject.Find("UI Manager").GetComponent<GameGUINavigation>();
         _dest = transform.position;
+
+        gc = (GameController)FindObjectOfType(typeof(GameController)); 
     }
 
     // Update is called once per frame
@@ -65,11 +69,13 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.lives <= 0)
         {
-            Debug.Log("Treshold for High Score: " + SM.LowestHigh());
-            if (GameManager.score >= SM.LowestHigh())
-                GUINav.getScoresMenu();
-            else
-                GUINav.H_ShowGameOverScreen();
+            // Debug.Log("Treshold for High Score: " + SM.LowestHigh());
+            // if (GameManager.score >= SM.LowestHigh())
+            //     GUINav.getScoresMenu();
+            // else
+            //     GUINav.H_ShowGameOverScreen();
+            gc.currentScore += GameManager.score;
+            gc.goToNext();
         }
 
         else
@@ -145,6 +151,23 @@ public class PlayerController : MonoBehaviour
 
         Instantiate(points.pointSprites[killstreak - 1], transform.position, Quaternion.identity);
         GameManager.score += (int)Mathf.Pow(2, killstreak) * 100;
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        // Increase the score everytime you scare pacman
+        if(other.name == "pacman")
+        {
+            GM.LoseLife();
+        }
+
+        if(other.name == "clyde" || other.name == "blinky" || other.name == "inky" || other.name == "pinky")
+        {
+            GM.LoseLife();
+        }
+
 
     }
 }

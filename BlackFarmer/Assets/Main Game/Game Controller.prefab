@@ -172,6 +172,8 @@ MonoBehaviour:
   games:
   - Strength Tester
   - Cooking
+  - pacman
+  - sonic
   numLevels: 10
   levels: []
   currentLevel: 0
@@ -181,6 +183,9 @@ MonoBehaviour:
   MainMenu: {fileID: 1834697843395368}
   EndMenu: {fileID: 0}
   timer: 0
+  dayText: {fileID: 0}
+  mainTitle: {fileID: 0}
+  mainInstructions: {fileID: 0}
 --- !u!114 &114658261464062340
 MonoBehaviour:
   m_ObjectHideFlags: 1
