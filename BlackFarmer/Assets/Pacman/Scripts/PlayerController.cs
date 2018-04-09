@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
             //     GUINav.getScoresMenu();
             // else
             //     GUINav.H_ShowGameOverScreen();
+            gc = (GameController)FindObjectOfType(typeof(GameController)); 
+
             gc.currentScore += GameManager.score;
             gc.goToNext();
         }

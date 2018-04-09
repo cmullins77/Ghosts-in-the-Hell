@@ -80,10 +80,10 @@ public class ScoreManager : MonoBehaviour {
             }
         }
         */
-        scoreList.Clear();
-        scoreList.Add(new Score("DATABASE TEMPORARILY UNAVAILABLE", 999999));
+        // scoreList.Clear();
+        // scoreList.Add(new Score("DATABASE TEMPORARILY UNAVAILABLE", 999999));
 
-        GameObject.FindGameObjectWithTag("ScoresText").GetComponent<Scores>().UpdateGUIText(scoreList);
+        // GameObject.FindGameObjectWithTag("ScoresText").GetComponent<Scores>().UpdateGUIText(scoreList);
         yield return new WaitForSeconds(0f);
     }
 
