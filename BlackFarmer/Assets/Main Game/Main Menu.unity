@@ -268,7 +268,7 @@ Prefab:
     - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: games.Array.data[4]
-      value: Fighting
+      value: pacman
       objectReference: {fileID: 0}
     - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
@@ -293,7 +293,7 @@ Prefab:
     - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
       propertyPath: games.Array.data[0]
-      value: pacman
+      value: Fighting
       objectReference: {fileID: 0}
     - target: {fileID: 114739371609643684, guid: 499ae91c347e5214596825c5a71fa739,
         type: 2}
@@ -314,6 +314,11 @@ Prefab:
         type: 2}
       propertyPath: m_textInfo.wordCount
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408110781398938, guid: 499ae91c347e5214596825c5a71fa739,
+        type: 2}
+      propertyPath: numLevels
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499ae91c347e5214596825c5a71fa739, type: 2}
