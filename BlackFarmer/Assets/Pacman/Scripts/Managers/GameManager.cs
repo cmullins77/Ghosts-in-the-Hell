@@ -152,8 +152,10 @@ public class GameManager : MonoBehaviour {
     
         // update UI too
         UIScript ui = GameObject.FindObjectOfType<UIScript>();
-        Destroy(ui.lives[ui.lives.Count - 1]);
-        ui.lives.RemoveAt(ui.lives.Count - 1);
+        if(ui.lives.Count - 1>=0){
+            Destroy(ui.lives[ui.lives.Count - 1]);
+            ui.lives.RemoveAt(ui.lives.Count - 1);
+        }
     }
 
     public static void DestroySelf()
