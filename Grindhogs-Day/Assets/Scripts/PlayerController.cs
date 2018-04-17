@@ -12,9 +12,9 @@ public class PlayerController : MonoBehaviour {
 	SpriteRenderer sr;
 	Rigidbody2D rb;
 	PlayerStateManager psm;
-	float distToGround;
-	float speed = 2f;
-	float thrust = 2f;
+	float distToGround=0.2f;
+	float speed = 1f;
+	float thrust = 1f;
 
 	double frameOffset = 0;
 	double lastFrameCount = 0;
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * Vector2.up);
 
-		if(hit.distance < 0.7){
+		if(hit.distance < distToGround){
 			psm.state = "idle";
 			isGrounded=true;
 			anim.SetBool("jump",false);
