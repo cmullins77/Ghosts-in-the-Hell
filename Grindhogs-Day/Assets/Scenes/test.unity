@@ -533,11 +533,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4259477904872494, guid: a5287a363a5654432bb460e6f82b2b1a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4259477904872494, guid: a5287a363a5654432bb460e6f82b2b1a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.025
       objectReference: {fileID: 0}
     - target: {fileID: 4259477904872494, guid: a5287a363a5654432bb460e6f82b2b1a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -569,7 +569,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4259477904872494, guid: a5287a363a5654432bb460e6f82b2b1a, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4259477904872494, guid: a5287a363a5654432bb460e6f82b2b1a, type: 2}
       propertyPath: m_LocalScale.y
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   isGrounded: 0
-  pastLife: {fileID: 1307886331139926, guid: ad21ec799f98e410996f184bb07afc87, type: 2}
+  pastLife: {fileID: 1409422975014500, guid: ad21ec799f98e410996f184bb07afc87, type: 2}
 --- !u!114 &1678351046
 MonoBehaviour:
   m_ObjectHideFlags: 0
