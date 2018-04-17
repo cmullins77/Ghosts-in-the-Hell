@@ -88,12 +88,12 @@ TextureImporter:
       name: knight_idle_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 79
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.40460163, y: 0.55050516}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -102,12 +102,12 @@ TextureImporter:
       name: knight_idle_1
       rect:
         serializedVersion: 2
-        x: 141
+        x: 32
         y: 0
-        width: 80
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.40460157, y: 0.5224468}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -116,12 +116,12 @@ TextureImporter:
       name: knight_idle_2
       rect:
         serializedVersion: 2
-        x: 267
+        x: 64
         y: 0
-        width: 82
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.38215494, y: 0.49438843}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,12 +130,12 @@ TextureImporter:
       name: knight_idle_3
       rect:
         serializedVersion: 2
-        x: 395
+        x: 96
         y: 0
-        width: 79
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.39898992, y: 0.5056118}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

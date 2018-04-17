@@ -92,12 +92,12 @@ TextureImporter:
       name: knight_runner_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 119
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.44388333, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -106,12 +106,12 @@ TextureImporter:
       name: knight_runner_1
       rect:
         serializedVersion: 2
-        x: 124
+        x: 32
         y: 0
-        width: 125
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.37654316, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -120,12 +120,12 @@ TextureImporter:
       name: knight_runner_2
       rect:
         serializedVersion: 2
-        x: 249
+        x: 64
         y: 0
-        width: 125
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.39898992, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: knight_runner_3
       rect:
         serializedVersion: 2
-        x: 374
+        x: 96
         y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.41021347, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,12 +148,12 @@ TextureImporter:
       name: knight_runner_4
       rect:
         serializedVersion: 2
-        x: 505
+        x: 128
         y: 0
-        width: 122
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.38776636, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: knight_runner_5
       rect:
         serializedVersion: 2
-        x: 633
+        x: 160
         y: 0
-        width: 126
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.42143726, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: knight_runner_6
       rect:
         serializedVersion: 2
-        x: 762
+        x: 192
         y: 0
-        width: 119
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4214368, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: knight_runner_7
       rect:
         serializedVersion: 2
-        x: 893
+        x: 224
         y: 0
-        width: 115
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.36531973, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

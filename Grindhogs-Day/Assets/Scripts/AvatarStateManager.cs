@@ -5,15 +5,15 @@ using UnityEngine;
 public class AvatarStateManager : MonoBehaviour {
 
 	public string state = "idle";
-	public float speed = 1.5f;
-	public float thrust = 2f;
+	public float speed = 1f;
+	public float thrust = 0.5f;
 
 	GameObject weapon;
 	AvatarController ac;
 	Rigidbody2D rb;
 	Animator anim;
 	float force = 50;
-	float airLimit = 0.5f; //maximum time on upthrust for jump
+	float airLimit = 0.3f; //maximum time on upthrust for jump
 	float airTimer = 0f;
 
 	// Use this for initialization
