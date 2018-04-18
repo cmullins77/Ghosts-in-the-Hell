@@ -21,6 +21,10 @@ public class AvatarController : MonoBehaviour {
 	string recString = "";
 	string[] recSubstrings;
 
+	float h_movement = 0;		
+	float v_movement = 0;
+	bool fire1 = false;
+	bool isMoving = true; //continuous value must be executed every frame
 
 	Queue recQ = new Queue(); //format: frame#horizontal#vertical#fire
 
@@ -49,18 +53,22 @@ public class AvatarController : MonoBehaviour {
 			isGrounded=false;
 		}
 
-		// print(recString+" "+matchFrame+" "+Time.frameCount);
-		if(matchFrame == Time.frameCount - lastFrameCount){
-			lastFrameCount = Time.frameCount;
-			Replay();
-			ExRec();
-		}
+		Replay();
 	}
 
 	void Replay(){
+
 		//movement
-		float h_movement = float.Parse(recSubstrings[1]);		
-		float v_movement = float.Parse(recSubstrings[2]);
+		if(matchFrame == Time.frameCount - lastFrameCount){
+			lastFrameCount = Time.frameCount;
+			GetNextInput(true);
+			ExRec();
+		}
+
+		if(h_movement!=0)
+			isMoving=true;
+		else
+			isMoving=false;
 
 		direction = h_movement < 0 ? -1 : (h_movement > 0 ? 1 : 0);
 
@@ -87,11 +95,31 @@ public class AvatarController : MonoBehaviour {
 		}
 
 		//attack
-		if (bool.Parse(recSubstrings[3])){
+		if (fire1){
 			anim.SetTrigger("attack");
+		}
+
+		//reset old values
+		float old_h_movement = h_movement; //this is a continuous value that should between switch frames
+		GetNextInput(false);
+
+		if(isMoving){
+			h_movement = old_h_movement;
 		}
 	}
 
+	void GetNextInput(bool isFresh){
+		if(isFresh){
+			h_movement = float.Parse(recSubstrings[1]);		
+			v_movement = float.Parse(recSubstrings[2]);
+			fire1 = bool.Parse(recSubstrings[3]);
+		}
+		else{
+			h_movement = 0;		
+			v_movement = 0;
+			fire1 = false;
+		}
+	}
 
 	void ExRec(){
 		if(recQ.Count <= 0){
@@ -103,6 +131,8 @@ public class AvatarController : MonoBehaviour {
 		char delimiter = '#';
 		recSubstrings = recString.Split(delimiter);
 		matchFrame = double.Parse(recSubstrings[0]);
+
+		// print(recString);
 	}
 
 	public void InitiateQ(Queue inputQ){

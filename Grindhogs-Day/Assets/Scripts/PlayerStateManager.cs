@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerStateManager : MonoBehaviour {
 
 	public string state = "idle";
-	public float speed = 1f;
-	public float thrust = 0.5f;
+	float speed = 1.5f;
+	float thrust = 2f;
 
 	GameObject weapon;
 	PlayerController pc;

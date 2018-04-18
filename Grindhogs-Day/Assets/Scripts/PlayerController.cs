@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour {
 	Quaternion initRot;
 	GameObject lastLife;
 
+	float old_h_movement = 0; //from last frame
+	float old_v_movement = 0; //from last frame
+	bool old_fire1 = false; //from last frame
+
 	Queue inputQ = new Queue(); //format: frame#horizontal#vertical#fire
 
 	// Use this for initialization
@@ -55,11 +59,16 @@ public class PlayerController : MonoBehaviour {
 		float h_movement = Input.GetAxis("Horizontal");		
 		float v_movement = Input.GetAxis("Vertical");
 
+		h_movement = h_movement < 0 ? -1 : (h_movement > 0 ? 1 : 0); //normalise values to ceil and floor
+		v_movement = v_movement < 0 ? -1 : (v_movement > 0 ? 1 : 0); //normalise values to ceil and floor
+
 		direction = h_movement < 0 ? -1 : (h_movement > 0 ? 1 : 0);
 
 		if (h_movement!=0 && v_movement>=0){
 			if(isGrounded)
 				anim.SetBool("run",true);
+			// Vector2 moveOff = Vector2.right * direction * speed * Time.deltaTime;
+			// print("is translating: "+ moveOff.ToString("F4"));
 			transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
 		}
 		else{
@@ -80,17 +89,24 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//attack
-		if (Input.GetButtonDown("Fire1")){
+		bool fire1 = Input.GetButtonDown("Fire1");
+		if (fire1){
 			anim.SetTrigger("attack");
 		}
 
 		//record only frames where there is input
-		 if (Input.anyKey){
+		 if (isInputChange(h_movement,v_movement,fire1)){
 		 	frameOffset = Time.frameCount - lastFrameCount;
 		 	lastFrameCount = Time.frameCount;
-		 	string inputString = frameOffset+"#"+h_movement+"#"+v_movement+"#"+Input.GetButtonDown("Fire1");
+		 	string inputString = frameOffset+"#"+h_movement+"#"+v_movement+"#"+fire1;
 		 	inputQ.Enqueue(inputString);
+		 	// print(inputString);
 		 }
+
+		 //record this frames values to compare with the next
+		 old_fire1 = fire1;
+		 old_h_movement = h_movement;
+		 old_v_movement = v_movement;
 
 		 //hotkey for instantiating past life
 		 if (Input.GetKeyDown(KeyCode.I)){
@@ -98,6 +114,17 @@ public class PlayerController : MonoBehaviour {
 		 	lastLife.GetComponent<AvatarController>().InitiateQ(inputQ);
 		 	inputQ = new Queue(); //flush old queue;
 		 }
+	}
+
+	bool isInputChange(float h_movement, float v_movement,bool fire1){
+		if(h_movement!=old_h_movement)
+			return true;
+		if(v_movement!=old_v_movement)
+			return true;
+		if(fire1!=old_fire1)
+			return true;
+
+		return false;
 	}
 
 }
