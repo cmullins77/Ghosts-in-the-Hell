@@ -5,8 +5,8 @@ using UnityEngine;
 public class AvatarStateManager : MonoBehaviour {
 
 	public string state = "idle";
-	public float speed = 1f;
-	public float thrust = 0.5f;
+	public float speed = 1.5f;
+	public float thrust = 2f;
 
 	GameObject weapon;
 	AvatarController ac;
