@@ -143,7 +143,7 @@ public class AvatarController : MonoBehaviour {
 		if(isMoving){
 			h_movement = old_h_movement;
 		}
-		if(old_v_movement<0){
+		if(old_v_movement!=0){
 			v_movement = old_v_movement;
 		}
 	}
@@ -166,7 +166,6 @@ public class AvatarController : MonoBehaviour {
 	void ExRec(){
 		if(recQ.Count <= 0){
 			matchFrame = -1;
-			Destroy(gameObject);
 			return;
 		}
 		recString = (string) recQ.Dequeue();

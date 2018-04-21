@@ -5,8 +5,8 @@ using UnityEngine;
 public class AvatarStateManager : MonoBehaviour {
 
 	public string state = "idle";
-	public float speed = 1.5f;
-	public float thrust = 1f;
+	float speed = 1.5f;
+	float thrust = 1f;
 	public Transform carrySpot;
 	public Transform liftSpot;
 

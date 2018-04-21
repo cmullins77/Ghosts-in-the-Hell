@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour {
 	public bool isGrounded = false;
 	public bool isCarrying = false;
 	public bool isLifting = false;
+	public GameObject pastLife;
+
+	Vector2 initPos;
+	Quaternion initRot;
 
 	Animator anim;
 	SpriteRenderer sr;
@@ -35,10 +39,14 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 
 		lastFrameCount = Time.frameCount; //initialFrame
+
+		initPos = GameObject.Find("Player").transform.position;		// spawn point
+		initRot = GameObject.Find("Player").transform.rotation;		// spawn rotation
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * Vector2.up);
 
 		if(hit.distance < distToGround){
@@ -137,12 +145,12 @@ public class PlayerController : MonoBehaviour {
 		 old_h_movement = h_movement;
 		 old_v_movement = v_movement;
 
-		 //hotkey for instantiating past life
-		 // if (Input.GetKeyDown(KeyCode.I)){
-		 // 	lastLife = Instantiate(pastLife,initPos,initRot);
-		 // 	lastLife.GetComponent<AvatarController>().InitiateQ(inputQ);
-		 // 	inputQ = new Queue(); //flush old queue;
-		 // }
+		 // hotkey for instantiating past life
+		 if (Input.GetKeyDown(KeyCode.I)){
+		 	GameObject lastLife = Instantiate(pastLife,initPos,initRot);
+		 	lastLife.GetComponent<AvatarController>().InitiateQ(inputQ);
+		 	inputQ = new Queue(); //flush old queue;
+		 }
 	}
 
 	bool isInputChange(float h_movement, float v_movement,bool fire1, bool fire2){

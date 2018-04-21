@@ -255,7 +255,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.05}
+  m_Size: {x: 0.25, y: 0.1}
   m_Direction: 1
 --- !u!95 &95102239097485370
 Animator:
@@ -312,8 +312,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: idle
-  speed: 1.5
-  thrust: 2
   carrySpot: {fileID: 4179141902370106}
   liftSpot: {fileID: 4404453055304468}
 --- !u!212 &212167753643913914

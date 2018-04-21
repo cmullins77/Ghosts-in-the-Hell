@@ -28,7 +28,6 @@ public class SpawnManager : MonoBehaviour {
 	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
     	if(avatars!=null){
-        	print("Scene reloaded, ac: "+avatars.Count);
         	spawnPastLives = true;
     	}
     }
