@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
 	public bool isGrounded = false;
 	public bool isCarrying = false;
 	public bool isLifting = false;
-	public GameObject pastLife;
 
 	Animator anim;
 	SpriteRenderer sr;
@@ -20,9 +19,6 @@ public class PlayerController : MonoBehaviour {
 
 	double frameOffset = 0;
 	double lastFrameCount = 0;
-	Vector2 initPos;
-	Quaternion initRot;
-	GameObject lastLife;
 
 	float old_h_movement = 0; //from last frame
 	float old_v_movement = 0; //from last frame
@@ -37,9 +33,6 @@ public class PlayerController : MonoBehaviour {
 		sr = GetComponent<SpriteRenderer>();
 		psm = GetComponent<PlayerStateManager>();
 		rb = GetComponent<Rigidbody2D>();
-
-		initPos = transform.position;
-		initRot = transform.rotation;
 
 		lastFrameCount = Time.frameCount; //initialFrame
 	}
@@ -145,11 +138,11 @@ public class PlayerController : MonoBehaviour {
 		 old_v_movement = v_movement;
 
 		 //hotkey for instantiating past life
-		 if (Input.GetKeyDown(KeyCode.I)){
-		 	lastLife = Instantiate(pastLife,initPos,initRot);
-		 	lastLife.GetComponent<AvatarController>().InitiateQ(inputQ);
-		 	inputQ = new Queue(); //flush old queue;
-		 }
+		 // if (Input.GetKeyDown(KeyCode.I)){
+		 // 	lastLife = Instantiate(pastLife,initPos,initRot);
+		 // 	lastLife.GetComponent<AvatarController>().InitiateQ(inputQ);
+		 // 	inputQ = new Queue(); //flush old queue;
+		 // }
 	}
 
 	bool isInputChange(float h_movement, float v_movement,bool fire1, bool fire2){
@@ -163,6 +156,10 @@ public class PlayerController : MonoBehaviour {
 			return true;
 
 		return false;
+	}
+
+	public Queue GetInputQ(){
+		return inputQ;
 	}
 
 }

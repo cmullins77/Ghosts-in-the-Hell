@@ -6,13 +6,14 @@ public class PlayerStateManager : MonoBehaviour {
 
 	public string state = "idle";
 	float speed = 1.5f;
-	float thrust = 2f;
+	float thrust = 1f;
 	public Transform carrySpot;
 	public Transform liftSpot;
 
 	GameObject weapon;
 	GameObject carryObject;
 	PlayerController pc;
+	SpawnManager sMgr;
 	Rigidbody2D rb;
 	Animator anim;
 	float force = 50;
@@ -24,6 +25,7 @@ public class PlayerStateManager : MonoBehaviour {
 		pc = GetComponent<PlayerController>();
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
+		sMgr = GameObject.Find("DeathGod").GetComponent<SpawnManager>();
 		// weapon = this.gameObject.transform.GetChild(0);
 	}
 	
@@ -74,6 +76,9 @@ public class PlayerStateManager : MonoBehaviour {
 						carryObject.transform.position = carrySpot.position;
 				}
 				break;
+			case "dead":
+				state = "dead";
+				break;
 		}
 	}
 
@@ -84,5 +89,20 @@ public class PlayerStateManager : MonoBehaviour {
 			}
 		}
 		return null;
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.gameObject.tag == "Fatal"){
+			KillPlayer();
+		}
+	}
+
+	void KillPlayer(){
+		if(state!="dead"){
+			state = "dead";
+			anim.SetTrigger("die");
+			sMgr.KillPlayer(pc.GetInputQ());
+			pc.enabled = false; //gotta stay dead	
+		}
 	}
 }

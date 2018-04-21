@@ -6,7 +6,7 @@ public class AvatarStateManager : MonoBehaviour {
 
 	public string state = "idle";
 	public float speed = 1.5f;
-	public float thrust = 2f;
+	public float thrust = 1f;
 	public Transform carrySpot;
 	public Transform liftSpot;
 
@@ -74,6 +74,9 @@ public class AvatarStateManager : MonoBehaviour {
 						carryObject.transform.position = carrySpot.position;
 				}
 				break;
+			case "dead":
+				state = "dead";
+				break;
 		}
 	}
 
@@ -86,4 +89,17 @@ public class AvatarStateManager : MonoBehaviour {
 		return null;
 	}
 
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.gameObject.tag == "Fatal"){
+			KillPlayer();
+		}
+	}
+
+	void KillPlayer(){
+		if(state!="dead"){
+			ac.enabled = false; //gotta stay dead
+			state = "dead";
+			anim.SetTrigger("die");
+		}
+	}
 }
