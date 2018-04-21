@@ -38,6 +38,7 @@ public class AvatarStateManager : MonoBehaviour {
 		switch(state){
 			case "idle":
 				anim.SetBool("flight",false);
+				anim.SetBool("carry",false);
 				airTimer = 0;
 				break;			
 			case "flight":
@@ -53,6 +54,9 @@ public class AvatarStateManager : MonoBehaviour {
 						anim.SetBool("jump",false);
 					}	
 				}
+				break;			
+			case "carry":			
+				anim.SetBool("carry",true);
 				break;
 		}
 	}

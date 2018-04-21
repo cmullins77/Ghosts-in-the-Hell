@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UseController : MonoBehaviour {
+public class AvatarUseController : MonoBehaviour {
 
 	int layerInd = -1;
-	PlayerController pc;
+	AvatarController ac;
 
 	// Use this for initialization
 	void Start () {
-		pc = transform.parent.gameObject.GetComponent<PlayerController>();
+		ac = transform.parent.gameObject.GetComponent<AvatarController>();
 	}
 	
 	// Update is called once per frame
@@ -19,8 +19,7 @@ public class UseController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Object"){
-        	pc.isCarrying = true;
-        	other.transform.parent = transform.parent; //make object a child of the player
+        	ac.isCarrying = true;
         }
     }
 }
