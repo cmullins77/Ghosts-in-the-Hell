@@ -7,8 +7,11 @@ public class AvatarStateManager : MonoBehaviour {
 	public string state = "idle";
 	public float speed = 1.5f;
 	public float thrust = 2f;
+	public Transform carrySpot;
+	public Transform liftSpot;
 
 	GameObject weapon;
+	GameObject carryObject;
 	AvatarController ac;
 	Rigidbody2D rb;
 	Animator anim;
@@ -39,6 +42,11 @@ public class AvatarStateManager : MonoBehaviour {
 			case "idle":
 				anim.SetBool("flight",false);
 				anim.SetBool("carry",false);
+				if(carryObject!=null){
+					Physics2D.IgnoreCollision(GetComponent<Collider2D>(), carryObject.GetComponent<Collider2D>(), false);
+					carryObject.transform.parent = null; //detach object from child;
+					carryObject = null;
+				}
 				airTimer = 0;
 				break;			
 			case "flight":
@@ -57,8 +65,25 @@ public class AvatarStateManager : MonoBehaviour {
 				break;			
 			case "carry":			
 				anim.SetBool("carry",true);
+				carryObject = GetChildObject();
+				if(carryObject!=null){
+					Physics2D.IgnoreCollision(GetComponent<Collider2D>(), carryObject.GetComponent<Collider2D>());
+					if(ac.isLifting)
+						carryObject.transform.position = liftSpot.position;
+					else
+						carryObject.transform.position = carrySpot.position;
+				}
 				break;
 		}
+	}
+
+	GameObject GetChildObject(){
+		foreach (Transform child in transform){
+			if(child.tag == "Object"){
+				return child.gameObject;
+			}
+		}
+		return null;
 	}
 
 }

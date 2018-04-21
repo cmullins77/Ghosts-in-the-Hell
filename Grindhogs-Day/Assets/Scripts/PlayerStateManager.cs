@@ -45,6 +45,7 @@ public class PlayerStateManager : MonoBehaviour {
 				if(carryObject!=null){
 					Physics2D.IgnoreCollision(GetComponent<Collider2D>(), carryObject.GetComponent<Collider2D>(), false);
 					carryObject.transform.parent = null; //detach object from child;
+					carryObject = null;
 				}
 				airTimer = 0;
 				break;			
