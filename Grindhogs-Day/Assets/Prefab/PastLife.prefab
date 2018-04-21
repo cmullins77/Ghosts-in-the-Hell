@@ -195,8 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: idle
-  speed: 1
-  thrust: 0.5
+  speed: 1.5
+  thrust: 2
 --- !u!212 &212313198249364328
 SpriteRenderer:
   m_ObjectHideFlags: 1

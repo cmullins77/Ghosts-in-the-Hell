@@ -24,6 +24,7 @@ public class AvatarController : MonoBehaviour {
 	float h_movement = 0;		
 	float v_movement = 0;
 	bool fire1 = false;
+	bool fire2 = false;
 	bool isMoving = true; //continuous value must be executed every frame
 
 	Queue recQ = new Queue(); //format: frame#horizontal#vertical#fire
