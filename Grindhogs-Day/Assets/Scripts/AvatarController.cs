@@ -137,10 +137,14 @@ public class AvatarController : MonoBehaviour {
 
 		//reset old values
 		float old_h_movement = h_movement; //this is a continuous value that should persist between switch frames
+		float old_v_movement = v_movement; //this is a continuous value that may persist between switch frames
 		GetNextInput(false);
 
 		if(isMoving){
 			h_movement = old_h_movement;
+		}
+		if(old_v_movement<0){
+			v_movement = old_v_movement;
 		}
 	}
 
