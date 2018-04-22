@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: 949e3c2e4f06a44fb80ad7cba2e33a5c
-timeCreated: 1523770839
+guid: f2224e7c92ed54951b56d1f4f508f687
+timeCreated: 1524249406
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: knight_slide_0
-    21300002: knight_slide_1
-    21300004: knight_slide_2
-    21300006: knight_slide_3
-    21300008: knight_slide_4
-    21300010: knight_slide_5
-    21300012: knight_slide_6
-    21300014: knight_slide_7
+    21300000: knight_carry_walk_0
+    21300002: knight_carry_walk_1
+    21300004: knight_carry_walk_2
+    21300006: knight_carry_walk_3
+    21300008: knight_carry_walk_4
+    21300010: knight_carry_walk_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -89,113 +87,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: knight_slide_0
+      name: knight_carry_walk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
+        width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.48877662, y: 0.310606}
+      pivot: {x: 0.3905724, y: 0.49999997}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: knight_slide_1
+      name: knight_carry_walk_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 32
         y: 0
-        width: 36
+        width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.4775535, y: 0.27272722}
+      pivot: {x: 0.3905723, y: 0.49999997}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: knight_slide_2
+      name: knight_carry_walk_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 64
         y: 0
-        width: 36
+        width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.48877674, y: 0.27272722}
+      pivot: {x: 0.38215494, y: 0.5084175}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: knight_slide_3
+      name: knight_carry_walk_3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 96
         y: 0
-        width: 36
+        width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.50000024, y: 0.28535348}
+      pivot: {x: 0.3905723, y: 0.5084175}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: knight_slide_4
+      name: knight_carry_walk_4
       rect:
         serializedVersion: 2
-        x: 144
+        x: 128
         y: 0
-        width: 36
+        width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.48877674, y: 0.26010096}
+      pivot: {x: 0.38215494, y: 0.5084175}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: knight_slide_5
+      name: knight_carry_walk_5
       rect:
         serializedVersion: 2
-        x: 180
+        x: 160
         y: 0
-        width: 36
+        width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.4775539, y: 0.26010096}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: knight_slide_6
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 0
-        width: 36
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5000004, y: 0.28535348}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: knight_slide_7
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 0
-        width: 36
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3484848}
+      pivot: {x: 0.37373734, y: 0.49999997}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

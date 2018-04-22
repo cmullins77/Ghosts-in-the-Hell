@@ -6,6 +6,8 @@ public class AvatarController : MonoBehaviour {
 
 	public float direction = 0;
 	public bool isGrounded = false;
+	public bool isCarrying = false;
+	public bool isLifting = false;
 
 	Animator anim;
 	SpriteRenderer sr;
@@ -24,6 +26,7 @@ public class AvatarController : MonoBehaviour {
 	float h_movement = 0;		
 	float v_movement = 0;
 	bool fire1 = false;
+	bool fire2 = false;
 	bool isMoving = true; //continuous value must be executed every frame
 
 	Queue recQ = new Queue(); //format: frame#horizontal#vertical#fire
@@ -44,7 +47,10 @@ public class AvatarController : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * Vector2.up);
 
 		if(hit.distance < distToGround){
-			asm.state = "idle";
+			if(!isCarrying)
+				asm.state = "idle";
+			else
+				asm.state = "carry";
 			isGrounded=true;
 			anim.SetBool("jump",false);
 		}
@@ -75,23 +81,53 @@ public class AvatarController : MonoBehaviour {
 		if (h_movement!=0 && v_movement>=0){
 			if(isGrounded)
 				anim.SetBool("run",true);
-			transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
+			float modifier = 1f;
+			if(isCarrying)
+				modifier = 0.5f;	//slowdown movement speed while walking
+			if(isLifting)
+				modifier = 0;	//no movement when lifting
+			transform.Translate(Vector2.right * direction * speed * Time.deltaTime * modifier);
 		}
 		else{
 			anim.SetBool("run",false);
 		}
 
+		//crouch
 		if(v_movement<0){
 			anim.SetBool("crouch",true);
+			//slide
+			if(h_movement!=0 && !isCarrying){
+				anim.SetTrigger("slide");
+				rb.velocity = Vector2.right * direction * speed * thrust;
+			}
+			if(isCarrying){
+				anim.SetBool("lift",false);
+				isLifting = false;
+			}
 		}
 		else{
 			anim.SetBool("crouch",false);
 		}
 
-		if(v_movement>0 && isGrounded){
-			anim.SetBool("jump",true);
-			rb.velocity = Vector2.up * speed * thrust;
-			anim.SetBool("flight",true);
+		//jump
+		if(v_movement>0){
+			if(isGrounded && !isCarrying){
+				anim.SetBool("jump",true);
+				rb.velocity = Vector2.up * speed * thrust;
+				anim.SetBool("flight",true);
+			}
+			if(isCarrying){
+				anim.SetBool("lift",true);
+				isLifting = true;
+			}
+		}
+
+		//use
+		if (fire2){
+			if(isCarrying && !isLifting) //can't drop object while lifting
+				isCarrying=false; //drops object
+			else
+				anim.SetTrigger("use");
 		}
 
 		//attack
@@ -100,11 +136,15 @@ public class AvatarController : MonoBehaviour {
 		}
 
 		//reset old values
-		float old_h_movement = h_movement; //this is a continuous value that should between switch frames
+		float old_h_movement = h_movement; //this is a continuous value that should persist between switch frames
+		float old_v_movement = v_movement; //this is a continuous value that may persist between switch frames
 		GetNextInput(false);
 
 		if(isMoving){
 			h_movement = old_h_movement;
+		}
+		if(old_v_movement!=0){
+			v_movement = old_v_movement;
 		}
 	}
 
@@ -113,18 +153,19 @@ public class AvatarController : MonoBehaviour {
 			h_movement = float.Parse(recSubstrings[1]);		
 			v_movement = float.Parse(recSubstrings[2]);
 			fire1 = bool.Parse(recSubstrings[3]);
+			fire2 = bool.Parse(recSubstrings[4]);
 		}
 		else{
 			h_movement = 0;		
 			v_movement = 0;
 			fire1 = false;
+			fire2 = false;
 		}
 	}
 
 	void ExRec(){
 		if(recQ.Count <= 0){
 			matchFrame = -1;
-			Destroy(gameObject);
 			return;
 		}
 		recString = (string) recQ.Dequeue();
