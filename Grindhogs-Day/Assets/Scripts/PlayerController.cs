@@ -166,6 +166,10 @@ public class PlayerController : MonoBehaviour {
 		return false;
 	}
 
+	public double GetKillFrameOffset(){
+		return Time.frameCount - lastFrameCount;
+	}
+
 	public Queue GetInputQ(){
 		return inputQ;
 	}

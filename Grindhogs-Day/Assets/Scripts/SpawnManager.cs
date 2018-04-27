@@ -49,8 +49,10 @@ public class SpawnManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(spawnPastLives && avatars.Count>0){
+			int i=0;
 			foreach(Queue avatarQ in avatars){
-				SpawnAvatar(avatarQ);
+				i+=1;
+				SpawnAvatar(avatarQ,i);				
 			}
 			spawnPastLives = false;
 		}
@@ -63,9 +65,10 @@ public class SpawnManager : MonoBehaviour {
 		}
 	}
 
-	void SpawnAvatar(Queue InputQ){
+	void SpawnAvatar(Queue InputQ, int iter){
 		GameObject lastLife = Instantiate(pastLife,initPos,initRot);
 		lastLife.GetComponent<AvatarController>().InitiateQ(InputQ);
+		lastLife.GetComponent<AvatarController>().SetAlpha(1f - (0.2f * (avatars.Count - iter))); // make the avatars fade
 	}
 
 	public void KillPlayer (Queue InputQ) {

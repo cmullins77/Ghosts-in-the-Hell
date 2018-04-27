@@ -66,6 +66,8 @@ public class AvatarController : MonoBehaviour {
 
 		//movement
 		if(matchFrame == Time.frameCount - lastFrameCount){
+			if(recSubstrings.Length==1)
+				return; // seize replay after last action frame
 			lastFrameCount = Time.frameCount;
 			GetNextInput(true);
 			ExRec();
@@ -181,4 +183,12 @@ public class AvatarController : MonoBehaviour {
 
 		ExRec();
 	}
+
+
+	public void SetAlpha(float opacity){
+		Color tmp = GetComponent<SpriteRenderer>().color;
+ 		tmp.a = opacity;
+ 		gameObject.GetComponent<SpriteRenderer>().color = tmp;
+	}
+
 }
