@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rb;
 	PlayerStateManager psm;
 	float distToGround=0.2f;
-	float speed = 1f;
-	float thrust = 1f;
+    public float speed = 1f;
+	public float thrust = 1f;
 
 	double frameOffset = 0;
 	double lastFrameCount = 0;
