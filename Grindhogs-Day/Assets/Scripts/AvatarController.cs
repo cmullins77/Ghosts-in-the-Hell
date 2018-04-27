@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class AvatarController : MonoBehaviour {
@@ -66,6 +67,8 @@ public class AvatarController : MonoBehaviour {
 
 		//movement
 		if(matchFrame == Time.frameCount - lastFrameCount){
+			if(recSubstrings.Length==1)
+				asm.KillPlayer(); // seize replay after last action frame
 			lastFrameCount = Time.frameCount;
 			GetNextInput(true);
 			ExRec();
@@ -149,17 +152,22 @@ public class AvatarController : MonoBehaviour {
 	}
 
 	void GetNextInput(bool isFresh){
-		if(isFresh){
-			h_movement = float.Parse(recSubstrings[1]);		
-			v_movement = float.Parse(recSubstrings[2]);
-			fire1 = bool.Parse(recSubstrings[3]);
-			fire2 = bool.Parse(recSubstrings[4]);
+		try{	
+			if(isFresh){
+				h_movement = float.Parse(recSubstrings[1]);		
+				v_movement = float.Parse(recSubstrings[2]);
+				fire1 = bool.Parse(recSubstrings[3]);
+				fire2 = bool.Parse(recSubstrings[4]);
+			}
+			else{
+				h_movement = 0;		
+				v_movement = 0;
+				fire1 = false;
+				fire2 = false;
+			}
 		}
-		else{
-			h_movement = 0;		
-			v_movement = 0;
-			fire1 = false;
-			fire2 = false;
+		catch(FormatException e){
+			//Parse exception
 		}
 	}
 
@@ -181,4 +189,12 @@ public class AvatarController : MonoBehaviour {
 
 		ExRec();
 	}
+
+
+	public void SetAlpha(float opacity){
+		Color tmp = GetComponent<SpriteRenderer>().color;
+ 		tmp.a = opacity;
+ 		gameObject.GetComponent<SpriteRenderer>().color = tmp;
+	}
+
 }

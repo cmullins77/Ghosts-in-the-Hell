@@ -93,20 +93,24 @@ public class PlayerStateManager : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Fatal"){
+			// print("fatal: "+other.gameObject.name);
 			KillPlayer();
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
     {
-        print(collision.relativeVelocity.magnitude);
+        // print(collision.relativeVelocity.magnitude);
     }
 
 	void KillPlayer(){
 		if(state!="dead"){
 			state = "dead";
 			anim.SetTrigger("die");
-			sMgr.KillPlayer(pc.GetInputQ());
+			double killFrameOS = pc.GetKillFrameOffset();
+			Queue inputQ = pc.GetInputQ();
+			inputQ.Enqueue(killFrameOS+"#");
+			sMgr.KillPlayer(inputQ);
 			pc.enabled = false; //gotta stay dead	
 		}
 	}

@@ -95,7 +95,7 @@ public class AvatarStateManager : MonoBehaviour {
 		}
 	}
 
-	void KillPlayer(){
+	public void KillPlayer(){
 		if(state!="dead"){
 			ac.enabled = false; //gotta stay dead
 			state = "dead";
