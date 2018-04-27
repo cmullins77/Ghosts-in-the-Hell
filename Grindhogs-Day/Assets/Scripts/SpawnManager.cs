@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class SpawnManager : MonoBehaviour {
 	
 	public GameObject pastLife;
+	public int lifeBuffer = 5; // number of lives that can be held at a time
+	public int spawnWait = 5; // time between death and spawn
 
 	ArrayList avatars; // Stores inputQs for each life
 	Vector2 initPos;
 	Quaternion initRot;
 	bool spawnPastLives = false;
+	float opacityMult = 0.2f;
 
 	void Awake() {
 		DontDestroyOnLoad(this.gameObject);
@@ -18,6 +21,7 @@ public class SpawnManager : MonoBehaviour {
 	    {
 	        Destroy(gameObject);
 	    }
+	    opacityMult = 1.0f/lifeBuffer;
 	}
 
 	void OnEnable()
@@ -60,7 +64,7 @@ public class SpawnManager : MonoBehaviour {
 
 	void AddAvatar(Queue InputQ){
 		avatars.Add(InputQ);
-		if(avatars.Count>5){
+		if(avatars.Count>lifeBuffer){
 			avatars.RemoveAt(0);
 		}
 	}
@@ -68,7 +72,7 @@ public class SpawnManager : MonoBehaviour {
 	void SpawnAvatar(Queue InputQ, int iter){
 		GameObject lastLife = Instantiate(pastLife,initPos,initRot);
 		lastLife.GetComponent<AvatarController>().InitiateQ(InputQ);
-		lastLife.GetComponent<AvatarController>().SetAlpha(1f - (0.2f * (avatars.Count - iter))); // make the avatars fade
+		lastLife.GetComponent<AvatarController>().SetAlpha(1f - (opacityMult * (avatars.Count - iter))); // make the avatars fade
 	}
 
 	public void KillPlayer (Queue InputQ) {
@@ -77,7 +81,7 @@ public class SpawnManager : MonoBehaviour {
 	}
 
 	IEnumerator DeathDelay () {
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(spawnWait);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload scene after death
 	}
 }
