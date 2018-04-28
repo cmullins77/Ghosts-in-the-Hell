@@ -21,7 +21,7 @@ public class AvatarUseController : MonoBehaviour {
         if(other.gameObject.tag=="Object"){
         	ac.isCarrying = true;
         	other.transform.parent = transform.parent; //make object a child of the player
-        	print(other.transform.parent.gameObject.name);
+        	// print(other.transform.parent.gameObject.name);
         }
     }
 }

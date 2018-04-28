@@ -25,11 +25,11 @@ public class GateLever : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!gateMoving && switchable()) {
-            if (clickable && Input.GetMouseButtonDown(1)) {
-                activateLever();
-            }
-        } else {
+        // if (!gateMoving && switchable()) {
+        //     if (clickable && Input.GetMouseButtonDown(1)) {
+        //         activateLever();
+        //     }
+        // } else {
             if (gateTime > 0) {
                 animateGate(0.005f);
                 gateTime--;
@@ -41,7 +41,7 @@ public class GateLever : MonoBehaviour {
                 gateMoving = false;
             }
 
-        }
+        // }
 	}
 
     private void OnMouseEnter() {

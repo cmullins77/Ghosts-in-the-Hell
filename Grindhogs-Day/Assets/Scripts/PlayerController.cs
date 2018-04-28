@@ -147,9 +147,10 @@ public class PlayerController : MonoBehaviour {
 
 		 // hotkey for instantiating past life
 		 if (Input.GetKeyDown(KeyCode.I)){
-		 	GameObject lastLife = Instantiate(pastLife,initPos,initRot);
-		 	lastLife.GetComponent<AvatarController>().InitiateQ(inputQ);
-		 	inputQ = new Queue(); //flush old queue;
+		 	// GameObject lastLife = Instantiate(pastLife,initPos,initRot);
+		 	// lastLife.GetComponent<AvatarController>().InitiateQ(inputQ);
+		 	// inputQ = new Queue(); //flush old queue;
+		 	psm.KillPlayer();
 		 }
 	}
 

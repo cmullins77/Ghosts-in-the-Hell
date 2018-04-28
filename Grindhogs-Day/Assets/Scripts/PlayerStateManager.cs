@@ -103,7 +103,7 @@ public class PlayerStateManager : MonoBehaviour {
         // print(collision.gameObject.name);
     }
 
-	void KillPlayer(){
+	public void KillPlayer(){
 		if(state!="dead"){
 			state = "dead";
 			anim.SetTrigger("die");
