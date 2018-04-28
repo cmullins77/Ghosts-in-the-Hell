@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isGrounded = false;
 	public bool isCarrying = false;
 	public bool isLifting = false;
-	public GameObject pastLife;
+	// public GameObject pastLife;
 
 	Vector2 initPos;
 	Quaternion initRot;
@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rb;
 	PlayerStateManager psm;
 	float distToGround=0.2f;
-    public float speed = 1f;
-	public float thrust = 1f;
+    float speed = 1f;
+	float thrust = 1f;
 
 	double frameOffset = 0;
 	double lastFrameCount = 0;

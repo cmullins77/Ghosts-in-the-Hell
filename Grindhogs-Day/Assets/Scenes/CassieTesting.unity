@@ -27551,9 +27551,6 @@ MonoBehaviour:
   isGrounded: 0
   isCarrying: 0
   isLifting: 0
-  pastLife: {fileID: 1484655558596758, guid: 2bc9a9f16f6f04949816c1bfae7c5c97, type: 2}
-  speed: 1
-  thrust: 8
 --- !u!114 &1678351046
 MonoBehaviour:
   m_ObjectHideFlags: 0
