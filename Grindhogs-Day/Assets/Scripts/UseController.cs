@@ -22,5 +22,8 @@ public class UseController : MonoBehaviour {
         	pc.isCarrying = true;
         	other.transform.parent = transform.parent; //make object a child of the player
         }
+        if (other.gameObject.tag == "Lever") {
+            print("LEVER");
+        }
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Object
   - Fatal
+  - Lever
+  - Saved
   layers:
   - Default
   - TransparentFX

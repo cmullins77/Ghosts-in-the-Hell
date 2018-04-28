@@ -7,7 +7,10 @@ public class SpawnManager : MonoBehaviour {
 	
 	public GameObject pastLife;
 	public int lifeBuffer = 5; // number of lives that can be held at a time
-	public int spawnWait = 5; // time between death and spawn
+	public int spawnWait = 5; // time between death and 
+
+    public GameObject[] savedObjects;
+    public int numObjs;
 
 	ArrayList avatars; // Stores inputQs for each life
 	Vector2 initPos;
@@ -21,7 +24,7 @@ public class SpawnManager : MonoBehaviour {
 	    {
 	        Destroy(gameObject);
 	    }
-	    opacityMult = 1.0f/lifeBuffer;
+        opacityMult = 1.0f/lifeBuffer;
 	}
 
 	void OnEnable()
@@ -59,7 +62,7 @@ public class SpawnManager : MonoBehaviour {
 				SpawnAvatar(avatarQ,i);				
 			}
 			spawnPastLives = false;
-		}
+        }
 	}
 
 	void AddAvatar(Queue InputQ){
