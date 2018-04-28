@@ -67,7 +67,7 @@ public class AvatarController : MonoBehaviour {
 
 		//movement
 		if(matchFrame == Time.frameCount - lastFrameCount){
-			if(recSubstrings.Length==1)
+			if(recSubstrings.Length==2)
 				asm.KillPlayer(); // seize replay after last action frame
 			lastFrameCount = Time.frameCount;
 			GetNextInput(true);
