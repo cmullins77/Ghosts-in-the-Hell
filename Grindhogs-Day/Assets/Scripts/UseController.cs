@@ -26,5 +26,9 @@ public class UseController : MonoBehaviour {
             GateLever gl = other.gameObject.GetComponent<GateLever>();
             gl.activateLever();
         }
+        if (other.gameObject.name == "Platform Lever") {
+            PlatformLever pl = other.gameObject.GetComponent<PlatformLever>();
+            pl.activateLever();
+        }
     }
 }

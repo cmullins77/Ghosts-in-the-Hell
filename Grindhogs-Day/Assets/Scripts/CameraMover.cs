@@ -27,6 +27,16 @@ public class CameraMover : MonoBehaviour {
                 camAnimator.enabled = true;
                 camAnimator.Play("Room2to1");
                 roomNum = 1;
+            } else if (player.transform.position.x > 5.25) {
+                camAnimator.enabled = true;
+                camAnimator.Play("Room2to3");
+                roomNum = 3;
+            }
+        } else if (roomNum == 3) {
+            if (player.transform.position.x < 5.25) {
+                camAnimator.enabled = true;
+                camAnimator.Play("Room3to2");
+                roomNum = 2;
             }
         }
 	}
