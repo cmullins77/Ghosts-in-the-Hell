@@ -16,7 +16,8 @@ public class AvatarController : MonoBehaviour {
 	AvatarStateManager asm;
 	float distToGround = 0.2f;
 	float speed = 1f;
-	float thrust = 1f;
+	float thrust = 2.5f;
+	float slip = 1f;
 
 	double frameOffset = 0;
 	double lastFrameCount = 0;
@@ -101,7 +102,7 @@ public class AvatarController : MonoBehaviour {
 			//slide
 			if(h_movement!=0 && !isCarrying){
 				anim.SetTrigger("slide");
-				rb.velocity = Vector2.right * direction * speed * thrust;
+				rb.velocity = Vector2.right * direction * speed * slip;
 			}
 			if(isCarrying){
 				anim.SetBool("lift",false);
@@ -195,6 +196,10 @@ public class AvatarController : MonoBehaviour {
 		Color tmp = GetComponent<SpriteRenderer>().color;
  		tmp.a = opacity;
  		gameObject.GetComponent<SpriteRenderer>().color = tmp;
+	}
+
+	public float GetThrust(){
+		return thrust;
 	}
 
 }

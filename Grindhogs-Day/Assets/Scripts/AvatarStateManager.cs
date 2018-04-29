@@ -5,8 +5,8 @@ using UnityEngine;
 public class AvatarStateManager : MonoBehaviour {
 
 	public string state = "idle";
-	float speed = 1.5f;
-	float thrust = 1f;
+	float speed = 1f;
+	float thrust;
 	public Transform carrySpot;
 	public Transform liftSpot;
 
@@ -25,6 +25,8 @@ public class AvatarStateManager : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		// weapon = this.gameObject.transform.GetChild(0);
+
+		thrust = ac.GetThrust();
 	}
 	
 	// Update is called once per frame

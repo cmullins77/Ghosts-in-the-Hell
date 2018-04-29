@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerStateManager : MonoBehaviour {
 
 	public string state = "idle";
-	float speed = 1.5f;
-	float thrust = 1f;
+	float speed = 1f;
+	float thrust;
 	public Transform carrySpot;
 	public Transform liftSpot;
 
@@ -27,6 +27,8 @@ public class PlayerStateManager : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		sMgr = GameObject.Find("DeathGod").GetComponent<SpawnManager>();
 		// weapon = this.gameObject.transform.GetChild(0);
+
+		thrust = pc.GetThrust();
 	}
 	
 	// Update is called once per frame
