@@ -30,5 +30,9 @@ public class UseController : MonoBehaviour {
             PlatformLever pl = other.gameObject.GetComponent<PlatformLever>();
             pl.activateLever();
         }
+        if (other.gameObject.name == "PortalLever") {
+            PortalLever pl = other.gameObject.GetComponent<PortalLever>();
+            pl.activateLever();
+        }
     }
 }
