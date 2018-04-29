@@ -11,6 +11,8 @@ public class PlatformLever : MonoBehaviour {
 
     public GameObject player;
 
+    public bool locked;
+
     private bool clickable;
 
 
@@ -37,7 +39,7 @@ public class PlatformLever : MonoBehaviour {
     }
 
     public void activateLever() {
-        if (!platform.on) {
+        if (!platform.on && !locked) {
             platform.turnOn();
             lever.GetComponent<SpriteRenderer>().sprite = leverDown;
         }

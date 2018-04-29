@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour {
     public bool on;
+    public int startTime;
 
     public bool movingUp;
     public float bottomPosition;
     public float topposition;
+    public float startPosition;
 
     public int pauseCount;
+    public SpawnManager sM;
+
 	// Use this for initialization
 	void Start () {
-		
+        startPosition = transform.position.y;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (on) {
+        if (on && startTime <= sM.totalTimer) {
             if (pauseCount > 0) {
                 pauseCount--;
             } else if (movingUp) {
@@ -35,11 +39,14 @@ public class MovingPlatform : MonoBehaviour {
                     pauseCount = 30;
                 }
             }
+        } else if (startTime > sM.totalTimer) {
+            transform.position = new Vector3(transform.position.x, startPosition, transform.position.z);
         }
 	}
 
     public void turnOn() {
         on = true;
+        startTime = 100;
         if (transform.position.y == bottomPosition) {
             movingUp = true;
         }

@@ -8,6 +8,7 @@ TagManager:
   - Fatal
   - Lever
   - Saved
+  - Knight
   layers:
   - Default
   - TransparentFX

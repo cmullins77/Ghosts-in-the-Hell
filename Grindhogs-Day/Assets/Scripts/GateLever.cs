@@ -61,6 +61,14 @@ public class GateLever : MonoBehaviour {
             gateTime = gateHeight * 60;
         }
     }
+    public void turnOn() {
+        if (!on) {
+            on = true;
+            lever.GetComponent<SpriteRenderer>().sprite = leverDown;
+            gateMoving = true;
+            gateTime = gateHeight * 60;
+        }
+    }
 
     public bool switchable() {
         float playerX = player.transform.position.x;
