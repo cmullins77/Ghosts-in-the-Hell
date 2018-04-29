@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public bool isGrounded = false;
 	public bool isCarrying = false;
 	public bool isLifting = false;
+    public int liftCount = 0;
+    public int fire2Cooldown;
 	// public GameObject pastLife;
 
 	Vector2 initPos;
@@ -47,6 +49,15 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        fire2Cooldown--;
+        if (isLifting) {
+            liftCount--;
+            if (liftCount==0) {
+                isLifting = false;
+                isCarrying = false;
+                psm.KillPlayer();
+            }
+        }
 		
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * Vector2.up);
 
@@ -97,6 +108,7 @@ public class PlayerController : MonoBehaviour {
 			if(isCarrying){
 				anim.SetBool("lift",false);
 				isLifting = false;
+                liftCount = 150;
 			}
 		}
 		else{
@@ -113,12 +125,14 @@ public class PlayerController : MonoBehaviour {
 			if(isCarrying){
 				anim.SetBool("lift",true);
 				isLifting = true;
+                liftCount = 150;
 			}
 		}
 
 		//use
 		bool fire2 = Input.GetButtonDown("Fire2");
-		if (fire2){
+		if (fire2 && fire2Cooldown <= 0){
+            fire2Cooldown = 30;
 			if(isCarrying && !isLifting) //can't drop object while lifting
 				isCarrying=false; //drops object
 			else
