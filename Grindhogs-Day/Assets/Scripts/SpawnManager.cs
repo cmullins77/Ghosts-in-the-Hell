@@ -17,8 +17,10 @@ public class SpawnManager : MonoBehaviour {
 	Quaternion initRot;
 	bool spawnPastLives = false;
 	float opacityMult = 0.2f;
+    public int totalTimer;
 
-	void Awake() {
+
+    void Awake() {
 		DontDestroyOnLoad(this.gameObject);
 		if (FindObjectsOfType(GetType()).Length > 1)
 	    {
@@ -55,6 +57,7 @@ public class SpawnManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        totalTimer++;
 		if(spawnPastLives && avatars.Count>0){
 			int i=0;
 			foreach(Queue avatarQ in avatars){
@@ -73,7 +76,9 @@ public class SpawnManager : MonoBehaviour {
 	}
 
 	void SpawnAvatar(Queue InputQ, int iter){
+        totalTimer = 0;
 		GameObject lastLife = Instantiate(pastLife,initPos,initRot);
+        lastLife.tag = "Knight";
 		lastLife.GetComponent<AvatarController>().InitiateQ(InputQ);
 		lastLife.GetComponent<AvatarController>().SetAlpha(1f - (opacityMult * (avatars.Count - iter))); // make the avatars fade
 	}
