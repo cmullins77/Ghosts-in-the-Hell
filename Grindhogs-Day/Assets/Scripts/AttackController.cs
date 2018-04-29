@@ -18,7 +18,7 @@ public class AttackController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if(hit_rb!=null){
 			hit_position = hit_rb.gameObject.transform.position;
 			Vector2 traj = (target_position - hit_position).normalized;
